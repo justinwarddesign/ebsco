@@ -1,0 +1,18 @@
+@media screen and (max-width: 768px) {
+
+/* == GLOBAL == */
+body{
+    font-size: 0.8em;
+}
+.container{
+    width: 97% !important;
+}
+
+/* == SEARCH RESULTS == */
+.search-result{
+
+}
+   section .result-img{
+       flex: 3;
+   } 
+    }

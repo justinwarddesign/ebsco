@@ -1,0 +1,197 @@
+@import "normalize.css";
+@import "mobile.css";
+
+/* == VARIABLES == */
+:root{
+    --accent-color: #00C4FF;
+    --dark-color: #041250;
+    --text-color: #272727;
+    --text-color2: #005757;
+    --light-color: #4d7ea8;
+    --bg-color: #e7e7e7;
+    --article-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* == GLOBAL == */
+html{    
+    color: var(--text-color);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+body{
+    background: var(--bg-color);
+    counter-reset: result;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+i{
+    cursor: pointer;
+}
+    i:hover{
+        transition: color 4ms;
+        color:var(--accent-color);
+    }
+
+
+header{
+    background: var(--light-color);
+    border-bottom: 2px solid black;
+}
+    header nav{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header i{
+        font-size: 1.3em;
+    }
+    header ul{
+        padding: 0;
+    }
+    header li{
+        display: inline-block;
+        list-style: none;
+        transition: color 0.5s;
+        margin-left: 0.5em;
+    }
+
+/* == MODAL == */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+    .result-keywords {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+      }
+
+
+/* == SEARCH RESULTS == */
+.search-result{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    /* gap: 1em; */
+    margin: 1em 0;
+    padding: 0.5em;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px var(--article-shadow);
+    align-content: stretch;
+}
+    .search-result::before{ /* puts an index counter infront of each search result */ 
+        counter-increment: result;
+        content: counter(result);
+        position: absolute;
+        left: -30px;
+        top: 40%;
+    }
+    .result-img{
+        flex: 1;
+        overflow: hidden;
+    }
+    .result-img img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+    .result-about{
+        flex: 8;
+        margin: 0 1em;
+    }
+        .result-name{
+            margin: 0;
+            font-weight: 700;
+        }
+        .result-author{
+            margin: 0;
+            text-decoration: underline;
+        }
+        .result-description{
+            margin: 0;
+        }
+        .result-keywords{
+            display: none;
+        }
+        .result-keywords li{
+            display: inline-block;
+            margin: 0 0.2em;
+            color: var(--text-color2)
+        }
+    .result-icons{
+        flex: 0.5;
+        text-align: center;
+    }
+    .result-icons i{
+        display: block;
+        margin: 1em 0;
+    }
+    .result-more{
+        width: 100%;
+    }
+    .result-bookmark{
+        opacity: 0;
+        transition: opacity 3ms;
+        width: 23px;
+        height: 37px;
+        position: absolute;
+        top: -10px;
+        right: 2.5em;
+        background: url(../images/bookmark.png) no-repeat;
+        background-size: cover;
+    }
+        .result-bookmark.clicked{
+            opacity: 1;
+        }
+
+        .item-rating-count,
+        .item-rating-count:active
+        {
+            font-size: 0.7em;
+            color: var(--accent-color);
+        }
+
+        .item-rating-count span{
+            margin-left: 0.2em;
+            font-style: italic;
+        }
+/* == PAGINATION == */
+.pagination {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    background: var(--light-color);
+    border: 1px solid var(--text-color);
+    transition: background 0.8ms;
+  }
+  .pagination a:hover{
+    background: white;
+  }
+  
+  .pagination a.active {
+    background: white;
+    color: var(--text-color);
+  }
+
+    
